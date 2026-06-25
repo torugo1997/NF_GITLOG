@@ -99,12 +99,12 @@ nome_usuario = st.text_input("Digite seu nome completo")
 
 if nome_usuario:
     nome_busca = normalizar(nome_usuario)
-    
-    for i in range(0,len(Parte1),1):
-        if (normalizar(Parte1[i][0])==normalizar(nome_busca)):
+    encontrado = False
+    for i in range(1, len(Parte1)):
+        if normalizar(Parte1[i][0]) == nome_busca:
+            encontrado = True
             break
-        
-    if i>=len(Parte1):
+    if not encontrado:
         st.error("Nome não encontrado.")
     else:
         st.success("Aluno encontrado!")
